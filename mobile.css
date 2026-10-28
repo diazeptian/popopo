@@ -1,0 +1,359 @@
+/* =====================================================
+   MOBILE.CSS — tampilan khusus HP
+   Dimuat SETELAH style.css, hanya aktif di layar <= 820px
+   (lihat tag <link> di index.html)
+   ===================================================== */
+
+/* ---------- HP & tablet kecil (<= 820px) ---------- */
+@media (max-width: 820px){
+
+    html{
+        -webkit-text-size-adjust: 100%;
+        scroll-padding-top: 70px;          /* supaya judul tidak tertutup navbar saat klik menu */
+    }
+
+    body{
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .wrap{
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+    }
+
+    /* ----- NAVBAR ----- */
+    nav{
+        padding-top: calc(10px + env(safe-area-inset-top));
+        padding-bottom: 10px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .logo svg{
+        width: 32px;
+        height: 32px;
+    }
+
+    .right{
+        gap: 10px;
+    }
+
+    .toggle{
+        width: 56px;
+        height: 32px;
+    }
+
+    .toggle::after{
+        width: 24px;
+        height: 24px;
+        top: 3px;
+    }
+
+    [data-theme="light"] .toggle::after{
+        transform: translateX(24px);
+    }
+
+    .burger{
+        width: 44px;
+        height: 44px;
+    }
+
+    .links{
+        box-shadow: 0 18px 30px rgba(0, 0, 0, .25);
+    }
+
+    .links a{
+        min-height: 48px;                  /* area sentuh nyaman */
+        display: flex;
+        align-items: center;
+        padding: 0;
+    }
+
+    .links a.on{
+        font-weight: 600;
+    }
+
+    /* ----- HERO ----- */
+    .hero{
+        min-height: 100svh;
+        padding: calc(88px + env(safe-area-inset-top)) 0 130px;
+        align-items: center;
+    }
+
+    .hero h4{
+        font-size: 18px;
+    }
+
+    .hero h1{
+        font-size: clamp(34px, 11vw, 46px);
+        line-height: 1.12;
+        margin: 4px 0 12px;
+    }
+
+    .typed{
+        font-size: 15px;
+        line-height: 1.45;
+        min-height: 66px;                  /* tinggi tetap agar layout tidak melompat saat mengetik */
+    }
+
+    .hero p.d{
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 10px 0 22px;
+    }
+
+    .btns{
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btns .btn{
+        width: 100%;
+        flex: none;
+        text-align: center;
+        padding: 15px 20px;
+        font-size: 15px;
+    }
+
+    .social{
+        margin-top: 22px;
+        gap: 12px;
+    }
+
+    .social a{
+        width: 44px;
+        height: 44px;
+    }
+
+    .mount{
+        height: 22%;
+    }
+
+    /* ----- SECTION ----- */
+    section.s{
+        padding: 88px 0;
+    }
+
+    .title{
+        gap: 12px;
+        margin-bottom: 36px;
+    }
+
+    .title h2{
+        font-size: 22px;
+    }
+
+    .title i{
+        flex: 1 1 auto;                    /* garis mengisi sisa lebar */
+    }
+
+    /* ----- ABOUT ----- */
+    .about{
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .photo{
+        order: -1;                         /* foto tampil di atas teks */
+        width: 190px;
+        height: 190px;
+        border-width: 3px;
+    }
+
+    .about p{
+        font-size: 15px;
+        line-height: 1.75;
+        max-width: 100%;
+    }
+
+    .feats{
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 22px;
+    }
+
+    .feat{
+        max-width: 100%;
+        flex: none;
+        padding: 14px 16px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--card);
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    /* ----- SKILLS ----- */
+    .skills{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .skills .card{
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .skills .card:last-child{
+        grid-column: span 2;
+    }
+
+    .ic{
+        width: 36px;
+        height: 36px;
+        margin-bottom: 10px;
+    }
+
+    /* ----- PROJECTS ----- */
+    .proj{
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .thumb{
+        height: 120px;
+    }
+
+    .proj .in{
+        padding: 16px 18px 18px;
+    }
+
+    .proj h3{
+        font-size: 16px;
+    }
+
+    .proj p{
+        font-size: 13.5px;
+    }
+
+    .tag{
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+
+    /* ----- CONTACT ----- */
+    .contact{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+    }
+
+    .contact p{
+        max-width: 100%;
+        font-size: 14.5px;
+    }
+
+    .contact .btn{
+        width: 100%;
+        text-align: center;
+        padding: 15px 20px;
+        font-size: 15px;
+    }
+
+    .ci{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .ci a{
+        display: block;
+        padding: 14px 16px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--card);
+        font-size: 13px;
+        word-break: break-word;
+    }
+
+    /* ----- FOOTER ----- */
+    footer{
+        padding: 22px 0 calc(22px + env(safe-area-inset-bottom));
+    }
+
+    footer .wrap{
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        text-align: center;
+    }
+
+    /* ----- TOMBOL KE ATAS ----- */
+    #top{
+        width: 48px;
+        height: 48px;
+        right: max(16px, env(safe-area-inset-right));
+        bottom: calc(16px + env(safe-area-inset-bottom));
+    }
+}
+
+/* ---------- HP kecil (<= 380px) ---------- */
+@media (max-width: 380px){
+
+    .wrap{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero h1{
+        font-size: 32px;
+    }
+
+    .typed{
+        font-size: 14px;
+        min-height: 82px;
+    }
+
+    .photo{
+        width: 170px;
+        height: 170px;
+    }
+
+    .skills{
+        grid-template-columns: 1fr;
+    }
+
+    .skills .card:last-child{
+        grid-column: auto;
+    }
+}
+
+/* ---------- HP posisi landscape (layar pendek) ---------- */
+@media (max-width: 900px) and (max-height: 500px) and (orientation: landscape){
+
+    .hero{
+        min-height: auto;
+        padding: 80px 0 90px;
+    }
+
+    .btns{
+        flex-direction: row;
+    }
+
+    .btns .btn{
+        width: auto;
+        flex: 1;
+    }
+
+    .moon,
+    .note{
+        display: none;
+    }
+}
+
+/* ---------- Layar sentuh: matikan efek hover yang "menempel" ---------- */
+@media (hover: none){
+
+    .card:hover,
+    .btn:hover,
+    .social a:hover,
+    .ci a:hover,
+    #top:hover{
+        transform: none;
+        box-shadow: var(--shadow);
+    }
+
+    .card:active,
+    .btn:active{
+        transform: scale(.98);
+    }
+}

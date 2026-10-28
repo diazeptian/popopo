@@ -1,0 +1,51 @@
+/* ===== KUCING PUTIH + LOADING ===== */
+html.loading{overflow:hidden}
+html.loading .hero .rv{animation-play-state:paused}
+section.s{overflow-x:clip}
+
+/* Loading screen */
+#loader{position:fixed;inset:0;z-index:200;background:var(--bg);display:grid;place-content:center;gap:16px;text-align:center;transition:opacity .7s,visibility .7s}
+#loader.out{opacity:0;visibility:hidden}
+.ltrack{position:relative;width:100vw;height:110px;overflow:hidden}
+.ltrack::after{content:"";position:absolute;left:0;right:0;bottom:12px;height:2px;background:var(--border)}
+.lcat{animation:lrun 2.4s linear infinite;transition:none!important}
+@keyframes lrun{from{left:-140px}to{left:100%}}
+#loader p{color:var(--muted);font-size:14px;letter-spacing:.12em}
+.lbar{width:200px;height:5px;margin:0 auto;border-radius:5px;background:var(--border);overflow:hidden}
+.lbar i{display:block;height:100%;width:0;background:var(--accent)}
+
+/* Kucing */
+.cat{position:absolute;z-index:6;width:var(--w,110px);aspect-ratio:4/3;pointer-events:none;transition:left var(--t,0ms) linear,top var(--t,0ms) linear}
+.cat svg{display:block;width:100%;height:100%;overflow:visible}
+.cat[data-d=l] svg{transform:scaleX(-1)}
+.cat .fur{fill:#fff;stroke:#a9b8d6;stroke-width:1.6;stroke-linejoin:round}
+.cat .far{fill:#e9eef8;stroke:#a9b8d6;stroke-width:1.6}
+.cat .leg{transform-box:fill-box;transform-origin:50% 0}
+.cat .tail{transform-box:fill-box;transform-origin:100% 100%;animation:wg 1.3s ease-in-out infinite alternate}
+@keyframes wg{from{rotate:-8deg}to{rotate:12deg}}
+
+/* pose: lari */
+.cat[data-p=run] .bd{animation:bn .32s ease-in-out infinite}
+.cat[data-p=run] :is(.f1,.b2){animation:lg .32s linear infinite}
+.cat[data-p=run] :is(.f2,.b1){animation:lg .32s linear infinite -.16s}
+.cat[data-p=run] .tail{animation-duration:.4s}
+@keyframes bn{50%{translate:0 -3px}}
+@keyframes lg{0%,100%{rotate:-38deg}50%{rotate:38deg}}
+/* pose: duduk & melambai */
+.cat:is([data-p=sit],[data-p=wave]) .bd{rotate:-10deg;transform-origin:60px 80px}
+.cat:is([data-p=sit],[data-p=wave]) :is(.b1,.b2){rotate:-75deg}
+.cat[data-p=wave] .f1{animation:wv .4s ease-in-out infinite alternate}
+@keyframes wv{from{rotate:-120deg}to{rotate:-165deg}}
+/* pose: mendorong */
+.cat[data-p=push] .bd{rotate:6deg;transform-origin:60px 80px;animation:ps .35s ease-in-out infinite alternate}
+.cat[data-p=push] :is(.f1,.f2){rotate:-85deg}
+@keyframes ps{to{translate:3px 0}}
+
+/* Balon kata */
+.say{position:absolute;left:58%;bottom:96%;white-space:nowrap;background:#fff;color:#14284d;font:500 14px 'Outfit',sans-serif;padding:6px 12px;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,.25);opacity:0;transform:translateY(6px) scale(.8);transition:.3s}
+.cat.talk .say{opacity:1;transform:none}
+
+/* Kucing hero bisa disentuh mouse */
+.cat.me{pointer-events:auto;cursor:pointer}
+.cat.hop{animation:hop .55s ease-out}
+@keyframes hop{40%{translate:0 -24px}}
